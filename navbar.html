@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    <title>Sua Página</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #709070;">
+    <a class="navbar-brand" href="/menu">
+        <img src="/static/img/logo.png" alt="Logo" style="height: 80px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('menu') }}" style="color: white;">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('novidades') }}" style="color: white;">Novidades</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('saude') }}" style="color: white;">Saúde</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('exercicio') }}" style="color: white;">Exercício</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                    Alimentação
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url_for('alimentacao') }}">Sobre</a>
+                    <a class="dropdown-item" href="/registro_alimentacao">Registro de Alimentação</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ url_for('mente') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                    Mente
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url_for('mente') }}">Sobre</a>
+                    <a class="dropdown-item" href="#">Exercícios Mentais</a>
+                    <a class="dropdown-item" href="#">Dicas e Instruções</a>
+                    <a class="dropdown-item" href="#">Cronograma de Descanso</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                    Objetivos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/cronometro">Cronômetro</a>
+                    <a class="dropdown-item" href="/agua">Contador de água</a>
+                    <a class="dropdown-item" href="/calorias">Contador de Calorias</a>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                        {{ current_user.nome }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="/usuario">Perfil</a>
+                        <a class="dropdown-item" href="/login">Logout</a>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-secondary" href="{{ url_for('cadastro_etapa1') }}">Cadastro</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<!-- jQuery e Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

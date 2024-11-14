@@ -1,0 +1,323 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Inicial - Live Well</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <div class="container-fluid mt-0">
+    <style>
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #FEFAF1;
+        }
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        .header-photo {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-image: url('/static/img/woman.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-color: #709070;
+            display: flex;
+            align-items: flex-start; 
+            justify-content: center;
+            color: white;
+        }
+
+        .header-text {
+            font-family: 'Cormorant SC', serif; 
+            text-align: left; 
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            padding: 141px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .header-text h1 {
+            font-family: 'Cormorant SC', serif; 
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .header-text p {
+            font-family: 'Cormorant SC', serif; 
+            font-size: 24px;
+        }
+
+
+        .services-section {
+            font-family: 'Cormorant SC', serif; 
+            background-color: #FEFAF1;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .services-h2 {
+            font-family: 'Cormorant SC', serif; 
+            margin-bottom: 20px;
+            font-size:36px;
+            color:#709070;
+            text-align: center;
+            width: 100%;
+            padding-top: 20px;
+
+        }
+
+        .services-list {
+            font-family: 'Cormorant SC', serif; 
+            list-style-type: none;
+            padding-left: 0;
+            margin-right: 5px;
+            flex: 1;
+        }
+
+        .services-list li {
+            font-family: 'Cormorant SC', serif; 
+            font-size: 20px;
+            margin-bottom: 65px;
+            padding-left: 7px;
+            text-align: left;
+            padding-left: 30px;
+            padding-right: 250px;
+        }
+
+        .video-section {
+            text-align: center;
+        }
+
+        .video-section iframe {
+            width: 100%;
+            height: 500px;
+            max-width: 800px; 
+        }
+
+        .about-us-section {
+            font-family: 'Cormorant SC', serif; 
+            background-color: #C8DBC3;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1; 
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .about-us-section img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .about-us-section h2 {
+            font-family: 'Cormorant SC', serif; 
+            margin-bottom: 15px;
+            font-size: 35px;
+            color: #709070;
+        }
+
+        .about-us-section p {
+            font-family: 'Cormorant SC', serif; 
+            font-size: 30px;
+            color: #1d1c1c;
+            text-align: center;
+            color:white;
+            padding-left: 400px;
+            padding-right: 400px;
+            padding-top: 40px;
+            
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit; 
+        }
+
+        .card-link:hover {
+            text-decoration: none;
+        }
+
+        
+        .copyright-section{
+            padding-top: 40px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .card-img-top{
+            width: 349px;
+            height: 300px;
+        }
+
+        .video-section {
+    position: relative;
+    background-image: url('static/img/fundo.png'); 
+    background-size: cover; 
+    background-position: center; 
+    padding: 10px; 
+    color: white; 
+    width: 100%;
+    height: 1300px;
+}
+.video-section h2 {
+    position: relative; 
+    z-index: 1; 
+    color:#709070;
+    padding-top: 300px;
+    text-align: center;
+}
+
+.video-section iframe {
+    position: relative;
+    z-index: 1; 
+    width: 100%;
+    height: 700px; 
+    align-items: center;
+   
+}
+
+.img-serviço{
+    width: 650px;
+    height: 590px;
+    padding-right: 200px;
+}
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="header-photo">
+        <div class="header-text">
+            <h1>Seja Bem-vindo ao Live Well</h1>
+            <p>Venha cuidar da sua saúde e bem estar!</p>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">     
+                <a href="novidades.html" class="card-link">
+                    <div class="card">
+                        <img src="/static/img/novidades.jpg" class="card-img-top" alt="Novidades">
+                        <div class="card-body">
+                            <h5 class="card-title">Novidades</h5>
+                            <p class="card-text">Fique por dentro das últimas atualizações e notícias sobre saúde e bem-estar.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4 mb-4">     
+                <a href="saude.html" class="card-link">
+                    <div class="card">
+                        <img src="/static/img/saude.jpg" class="card-img-top" alt="Saúde">
+                        <div class="card-body">
+                            <h5 class="card-title">Saúde</h5>
+                            <p class="card-text">Dicas e informações para manter sua saúde em dia.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4 mb-4">     
+                <a href="alimentacao.html" class="card-link">
+                    <div class="card">
+                        <img src="/static/img/alimentacao.jpg" class="card-img-top" alt="Saúde">
+                        <div class="card-body">
+                            <h5 class="card-title">Alimentação</h5>
+                            <p class="card-text">Dicas e informações para uma alimentação equilibrada.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-4 mb-4">     
+                <a href="mente.html" class="card-link">
+                    <div class="card">
+                        <img src="/static/img/mente.jpg" class="card-img-top" alt="Mente">
+                        <div class="card-body">
+                            <h5 class="card-title">Mente</h5>
+                            <p class="card-text">Cuide da sua mente: equilíbrio e bem-estar começam aqui!</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+            <!-- Card 5 -->
+            <div class="col-md-6 col-lg-4 mb-4">     
+                <a href="exercicio.html" class="card-link">
+                    <div class="card">
+                        <img src="/static/img/exercicio.jpg" width="300px" class="card-img-top" alt="Exercício">
+                        <div class="card-body">
+                            <h5 class="card-title">Exercício</h5>
+                            <p class="card-text">Exercícios para melhorar sua qualidade de vida.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+           
+    <h2 class="services-h2">Serviços Oferecidos</h2>
+    <div class="services-section">
+        <ul class="services-list">
+            <li class="service-item">Dicas Diárias de Bem-Estar: Descubra segredos para uma vida mais saudável e equilibrada, cuidando do seu corpo e da sua mente, todos os dias.</li>
+            <li class="service-item">Exercícios para Mente e Alma: Encontre paz interior com práticas de meditação e yoga, essenciais para relaxar, focar e se reconectar.</li>
+            <li class="service-item">Receitas Nutritivas e Saborosas: Explore receitas saudáveis e deliciosas que nutrem o corpo e encantam o paladar. Uma explosão de cores, sabores e saúde em cada prato!</li>
+            <li class="service-item">Lembretes para Hidratação: Receba lembretes para se manter hidratado durante o dia e descubra o impacto positivo que a água tem no seu bem-estar.</li>
+            <li class="service-item">Feedbacks Personalizados de Profissionais: Conte com o suporte e a orientação de especialistas que estão aqui para ajudar você a alcançar seu melhor!</li>
+        </ul>
+        <img src="/static/img/Serviços.png" class="img-serviço" alt="Serviços">
+    </div>
+    
+            <!-- Espaço para o vídeo -->
+            <div class="video-section mt-5">
+                <h2>Assista ao Nosso Vídeo</h2>
+                <iframe src="https://www.youtube.com/embed/CrwRwgNJIMU?si=WXmhpHpFfbtVNjLX&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+        
+        <!-- Seção Quem Somos -->
+        <div class="about-us-section mt-4 text-center">
+            <img src="/static/img/logo.png" alt="Logo">
+            <h2>Quem Somos?</h2>
+
+            <p>
+                A Live Well foi criada por estudantes da Escola SESI, da turma 2931, com o propósito de promover o bem-estar e a saúde das pessoas. Inspirados pelo desejo de ajudar a nossa comunidade a encontrar equilíbrio e felicidade, desenvolvemos este site como um projeto para incentivar hábitos saudáveis. Nossa missão é compartilhar dicas, recursos e orientações práticas para que todos possam melhorar sua qualidade de vida e cuidar da saúde de forma acessível e sustentável. Queremos que a Live Well seja um espaço de apoio e inspiração, onde cada usuário possa encontrar motivação e ferramentas para uma vida mais equilibrada e feliz.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- Seção Copyright -->
+        <div class="copyright-section">
+            <p>&copy; 2024 Live Well. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

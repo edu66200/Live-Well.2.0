@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<body>
+    <style>
+        .btn-custom {
+            background-color: #709070; /* Cor de fundo */
+            color: white; /* Cor do texto */
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="container">
+    <div class="row mt-4">
+        <h3>Contador de Água</h3>
+        <div id="contador" class="display-3">{{ water_count }}</div>
+
+        <div style="display: flex; flex-wrap: wrap; max-width: 100%;">
+            {% for i in range(water_count // 5) %}
+            <!-- Garrafa cheia para cada 5 copos completos -->
+            <img src="{{ url_for('static', filename='img/agua5.png') }}" alt="Garrafa Cheia" style="width: 10%;">
+            {% endfor %}
+            <!-- Garrafa parcial para os copos restantes -->
+            {% if water_count % 5 != 0 %}
+            <img src="{{ url_for('static', filename='img/agua' + (water_count % 5)|string + '.png') }}" 
+                 alt="Garrafa Parcial" style="width: 10%;">
+            {% endif %}
+        </div>
+
+        <div class="mt-4">
+            <form method="POST" action="{{ url_for('incrementar_agua') }}">
+                <button type="submit" class="btn btn btn-custom">Beber Copo de Água</button>
+            </form>
+            <form method="POST" action="{{ url_for('resetar_agua') }}" class="mt-2">
+                <button type="submit" class="btn btn-danger">Resetar</button>
+            </form>
+        </div>
+        <a href="{{ url_for('menu') }}" class="btn btn btn-custom mt-3">Voltar ao Menu</a>
+    </div>
+</div>
+{% endblock %}

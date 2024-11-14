@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center">Resultado de Calorias</h2>
+
+    <p>Café da Manhã: {{ cafe_da_manha }} calorias</p>
+    <p>Almoço: {{ almoco }} calorias</p>
+    <p>Jantar: {{ jantar }} calorias</p>
+    <p>Total de Calorias: {{ total_calorias }} calorias</p>
+    <p>Total de Água Consumida: {{ total_water }} ml</p>
+
+    <a href="{{ url_for('registro_alimentacao') }}" class="btn btn-primary">Voltar</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .profile-header h2 {
+            margin-top: 15px;
+            font-size: 28px;
+        }
+        .profile-details {
+            margin-top: 20px;
+        }
+        .profile-details h5 {
+            font-size: 18px;
+            color: #333;
+        }
+        .profile-details p {
+            font-size: 16px;
+            color: #555;
+        }
+        .btn-edit-profile {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        
+        <!-- Exibir mensagens flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert alert-warning">
+            {% for category, message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/150" alt="Foto do Usuário">
+            <h2>{{ user.nome }}</h2> <!-- Exibe o nome do usuário -->
+        </div>
+        <div class="profile-details">
+            <h5>Email:</h5>
+            <p>{{ usuario.email }}</p> <!-- Exibe o email do usuário -->
+            <h5>Data de Cadastro:</h5>
+            <p>{{ usuario.data_cadastro.strftime('%d/%m/%Y') }}</p> <!-- Exibe a data de cadastro formatada -->
+            <h5>Objetivos:</h5>
+            <p>{{ usuario.objetivos }}</p> <!-- Exibe os objetivos do usuário -->
+            {% if usuario.foto_perfil %}
+            <img src="{{ url_for('static', filename='fotos_perfil/' + usuario.foto_perfil) }}" alt="Foto de Perfil">
+                {% endif %}
+        </div>
+        <a href="#" class="btn btn-primary btn-edit-profile">Editar Perfil</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock %}

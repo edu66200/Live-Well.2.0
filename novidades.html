@@ -1,0 +1,240 @@
+{% block content %}
+{% include 'navbar.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentação - Live Well</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;700&display=swap">
+    <style>
+        .header-photo {
+            background-image: url('/static/img/your-header-image.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            position: relative;
+        }
+
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .content-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .food-photo {
+    background-image: url('static/img/capaAlimento.jpg'); 
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Aumentei a opacidade para 0.7 */
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+    color: white;
+}
+
+/* Para o efeito de sobreposição, adicione um pseudo-elemento */
+.food-photo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade conforme necessário */
+    z-index: 1; /* Para garantir que o filtro fique acima do fundo */
+}
+
+
+        .food-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .text-justified {
+            background-color: #C8DBC3; 
+            border-radius: 15px;
+            padding: 20px; 
+            margin: 0; 
+            width: 100%; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            color:#fefaf1;
+            font-size: 20px;
+            font-family: 'Cormorant SC', serif; 
+            text-align: justify;
+            padding-left: 400px;
+            padding-right: 400px;
+            
+
+        }
+        .text-justified h2 {
+            color:#709070;
+            text-align: center;
+            background-color: #C8DBC3;
+        }
+
+
+        .principles-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .principles-text, .principles-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .principles-text{
+            text-align: justify;
+            font-size: 20px;
+            font-family: 'Cormorant SC', serif;
+            
+        }
+
+        
+        .principles-text h3{
+            text-align: center;
+            font-size: 35px;
+            font-family: 'Cormorant SC', serif;
+            color:#709070;
+            
+        }
+
+        .principles-box {
+            border: 2px solid #4CAF50; 
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            margin-bottom: 10px; 
+            font-family: 'Cormorant SC', serif;
+        }
+
+        .image-box {
+            padding: 0px;
+            width: 101%;
+            border: #C8DBC3;
+            box-sizing: border-box;
+        }
+
+        .image-box img {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+
+        .copyright-section{
+            padding-top: 40px;
+            padding-bottom: 10px;
+            text-align: center;
+            background-color: #C8DBC3; 
+            border-radius: 5px;
+            padding: 20px; 
+            margin: 0; 
+            width: 100%; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            color:#fefaf1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header-text">
+     
+    </div>
+
+    <div class="food-photo">
+        <div class="food-text">Alimentação</div>
+    </div>
+    <div class="text-justified">
+        <h2>Alimente seu Corpo, Nutra sua Alma!</h2>
+        <p>
+            Você já parou para pensar no poder que a alimentação tem sobre o seu bem-estar? Cada garfada é uma oportunidade de cuidar de si mesmo e promover uma vida saudável! 🥗✨</p>
+
+           <p> A comida é mais do que apenas sustento; é uma fonte de energia e vitalidade. Quando escolhemos alimentos frescos e nutritivos, estamos investindo no nosso corpo e na nossa mente. Frutas vibrantes, verduras crocantes e grãos integrais são verdadeiros combustíveis para a saúde, repletos de vitaminas e minerais essenciais.</p>
+            
+           <h3> 🔍 Benefícios que Transformam:</h3> 
+            
+           <p> Aumenta a energia: Uma alimentação equilibrada ajuda a manter os níveis de energia estáveis ao longo do dia, combatendo a fadiga e a letargia.
+            Melhora o humor: Nutrientes como ômega-3 e vitaminas do complexo B estão diretamente ligados à saúde mental, ajudando a reduzir a ansiedade e a depressão.
+            Fortalece o sistema imunológico: Alimentos ricos em antioxidantes, como frutas e vegetais, ajudam a proteger o corpo contra doenças.
+            Apoia a digestão: Uma dieta rica em fibras promove uma boa saúde digestiva, evitando desconfortos e melhorando a absorção de nutrientes.
+            💚 Dica do Dia: Experimente colorir seu prato com uma variedade de alimentos! Cada cor representa diferentes nutrientes e benefícios para a saúde. Deixe seu almoço ou jantar mais atraente e saboroso!</p>
+            
+            <p>Lembre-se: a sua alimentação é uma forma de autocuidado. Faça escolhas conscientes e saboreie cada momento à mesa! 🍽️💪</p>
+            
+           <p> Alimente-se bem, viva melhor!</p>
+        <p>
+            Mas nem todo alimento é criado igual. Alguns são como combustíveis de alta qualidade, 
+            que nos dão disposição, força e vitalidade, enquanto outros são como combustíveis ruins, 
+            que podem nos deixar lentos, fracos e doentes.
+        </p>
+    </div>
+
+    <div class="principles-container">
+        <div class="principles-text">
+            <div class="principles-box">
+                <h3>Variedade</h3>
+                <p>A diversidade alimentar é crucial para o bem-estar, pois cada tipo de alimento oferece uma combinação única de nutrientes. Ao consumir uma ampla gama de alimentos, asseguramos que nosso corpo receba todas as vitaminas, minerais e substâncias necessárias para funcionar de maneira eficiente e saudável.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Hidratação</h3>
+                <p>A hidratação adequada é vital para a saúde e o bem-estar. Beber água suficiente não apenas sustenta as funções vitais do corpo, como a regulação da temperatura e a digestão, mas também ajuda a manter a pele saudável, a energia em alta e a eficiência dos órgãos.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Qualidade</h3>
+                <p>Selecionar alimentos frescos e de qualidade superior é fundamental para uma alimentação saudável. Esses alimentos são mais ricos em nutrientes, sabor e benefícios para a saúde, contribuindo significativamente para o fortalecimento do organismo e a promoção de um estilo de vida equilibrado.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Quantidade</h3>
+                <p> Adaptar o consumo das porções adequadas de cada grupo alimentar às necessidades específicas de cada indivíduo é essencial para garantir uma nutrição equilibrada e promover a saúde geral.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Regularidade</h3>
+                <p>Fazer refeições em intervalos regulares é crucial para sustentar os níveis de energia ao longo do dia, além de ajudar a evitar o impulso de exagerar nas quantidades consumidas..</p>
+            </div>
+        </div>
+        <div>
+            
+        </div>
+        <div class="principles-image">
+            <div class="image-box">
+                <img src="static/img/comida.jpg" alt="Alimentos Saudáveis">
+            </div>
+        </div>
+    </div>
+    <div class="copyright-section">
+        <p>&copy; 2024 Live Well. Todos os direitos reservados.</p>
+    </div>
+</body>
+{% endblock %}

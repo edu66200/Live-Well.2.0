@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container form-container">
+    <form action="" method="post" class="row mt-4 p-4 round border shadow">
+        
+        <!-- Reduzir o tamanho da imagem -->
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo-img">
+
+        <h3>Informe seus dados de acesso</h3>
+   
+        {{ form.csrf_token }}
+
+        <div class="form-group">
+            {{ form.email(class="form-control") }}
+        </div>
+
+        <div class="form-group mt-3">
+            {{ form.senha(class="form-control") }}
+        </div>
+
+        <div class="form-group col-12">
+            {{ form.btnSubmit(class="btn btn-primary col-12 mt-3 login-btn") }}
+        </div>
+    
+        <div class="cadastro-text">Não tem cadastro? 
+            <a href="{{ url_for('cadastro_etapa1') }}" class="btn btn-dark">Clique aqui e cadastre-se</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    h3 {
+        font-family: 'Copse';
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .form-control {
+        font-family: 'Cormorant SC', serif; 
+        font-size: 16px; 
+        text-align: center; 
+        color: black; 
+        background-color: #C8DBC3; 
+        border: 0px solid black; 
+        border-radius: 15px;
+        width: 100%; 
+        max-width: 300px;
+        height: 40px; 
+        margin: 0px auto; 
+        display: block; 
+    }
+
+    .form-container {
+        max-width: 100%; 
+        margin: 0 auto; 
+        padding: 20px; 
+    }
+
+    .form-group {
+        text-align: center; 
+    }
+
+    .btn {
+        font-size: 14px; 
+        background-color: #709070;
+        font-family: 'Cormorant SC', serif; 
+        border-radius: 15px;
+        width: auto; 
+        padding: 8px 12px;
+        display: inline-block;
+        margin: 5px; 
+        text-align: center;
+        max-width: 150px; 
+        white-space: nowrap; 
+    }
+    
+    .login-btn {
+        height: 40px;
+        font-family: 'Cormorant SC', serif; 
+        font-size: 17px; 
+        background-color: #709070;
+        border-radius: 15px;
+        border-color: black;
+        width: 100%; 
+        max-width: 300px;
+    }
+
+    .form-control::placeholder {
+        font-family: 'Cormorant SC', serif; 
+        color: white; 
+        font-size: 16px; 
+    }
+
+    .cadastro-text {
+        padding-top: 10px;
+        text-align: center;
+        font-family: 'Cormorant SC', serif; 
+        color: #040504; 
+        font-size: 15px; 
+    }
+
+    .logo-img {
+        width: 100%;
+        max-width: 300px; /* Ajustar tamanho máximo da imagem */
+        height: auto; /* Manter proporção da imagem */
+        margin: 0 auto 20px auto; /* Centralizar imagem e adicionar margem inferior */
+        display: block;
+    }
+</style>
+{% endblock %}

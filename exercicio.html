@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class>Alimentação - Live Well</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;700&display=swap">
+    <style>
+    .header-photo {
+            background-image: url('/static/img/exercicio.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            position: relative;
+        }
+
+        .content-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+
+
+            .food-text {
+            font-family: 'Cormorant SC', serif; 
+            text-align: center; 
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            padding: 176px; 
+            position: absolute;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            color: white; 
+            font-size: 2rem; 
+            font-weight: bold; 
+        }
+
+        .text-justified {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: justify;
+            font-family: 'Cormorant SC', serif;
+        }
+
+        .principles-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .principles-text, .principles-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .principles-box {
+            border: 2px solid #4CAF50; /* Borda verde */
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            margin-bottom: 10px; /* Espaço entre os boxes */
+            font-family: 'Cormorant SC', serif;
+        }
+
+        .image-box {
+            padding: 20px;
+            width: 100%;
+        }
+
+        .image-box img {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="header-photo">
+        <div class="food-text">Exercício</div>
+    </div>
+
+    <div class="text-justified">
+        <h2>O Exercício como Aliado: Cultivando um Estilo de Vida Saudável</h2>
+
+        <p>O exercício físico é um aliado poderoso que descobrimos ao longo da vida. Cuidar dele é como cultivar um jardim, onde nossas escolhas diárias são as sementes que plantamos.
+
+            Por meio de práticas que nos energizam, como atividades desafiadoras e momentos de descanso revitalizantes, podemos fortalecer tanto o corpo quanto a mente. Cada sessão de exercício se torna um passo valioso em nossa jornada pela saúde, guiando-nos em direção a uma vida ativa e equilibrada.
+        </p>
+
+    </div>
+
+    <div class="principles-container">
+        <div class="principles-text">
+            <div class="principles-box">
+                <h3>Objetivos claros</h3>
+
+                <p>Defina metas específicas e mensuráveis para orientar sua prática de exercícios.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Responsabilidade pessoal</h3>
+
+                <p>Assumir a responsabilidade por suas ações e escolhas, buscando constantemente 
+                    melhorar e crescer como indivíduo.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Consistência</h3>
+
+                <p>É essencial manter uma rotina regular de exercícios para obter benefícios a longo prazo. 
+                    Um compromisso consistente com o exercício é fundamental.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Nutrição adequada</h3>
+
+                <p> Consuma uma dieta equilibrada e nutritiva para apoiar seu desempenho e recuperação.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Monitoramento</h3>
+
+                <p>Avalie regularmente seu progresso e ajuste seu programa de exercícios conforme necessário.</p>
+            </div>
+        </div>
+
+        <div class="principles-image">
+            <div class="image-box">
+                <img src="static/img/leo.jpg" alt="Exercicio">
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

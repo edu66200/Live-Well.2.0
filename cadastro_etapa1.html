@@ -1,0 +1,152 @@
+<div class="container">
+    <!-- Imagem do Logo reduzida -->
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo-img">
+    </div>
+
+    <form action="" method="post" class="row mt-4 p-4 round border shadow">
+        {{ form.csrf_token }}
+
+        <!-- Ajustar layout dos campos do formulário -->
+        <div class="form-row">
+            <div class="col">
+                {{ form.nome(class="form-control") }}
+            </div>
+            <div class="col">
+                {{ form.sobrenome(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                {{ form.cpf(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                {{ form.data_nascimento(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                {{ form.telefone(class="form-control") }}
+            </div>
+            <div class="col">
+                {{ form.genero(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                {{ form.email(class="form-control") }}
+            </div>
+        </div>
+
+        {{ form.btnSubmit(class="btn btn-dark col-12 mt-3") }}
+    </form>
+</div>
+
+<script>
+    document.getElementById('telefone').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+        if (x[1]) {
+            e.target.value = '(' + x[1];
+        }
+        if (x[2]) {
+            e.target.value += ') ' + x[2];
+        }
+        if (x[3]) {
+            e.target.value += '-' + x[3];
+        }
+    });
+</script>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f9f5; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .logo-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .logo-img {
+        max-width: 300px; /* Ajustar tamanho máximo da imagem */
+        height: auto; /* Manter proporção da imagem */
+    }
+
+    .form-control {
+        font-family: 'Cormorant SC', serif; 
+        font-size: 16px; 
+        text-align: center; 
+        color: black; 
+        background-color: #C8DBC3; 
+        border: 1px solid black; 
+        border-radius: 15px;
+        width: 100%; 
+        max-width: 280px;
+        height: 40px; 
+        margin: 5px auto; 
+        display: block; 
+    }
+
+    .form-control::placeholder {
+        font-family: 'Cormorant SC', serif; 
+        color: white; 
+        font-size: 16px; 
+    }
+
+    .container {
+        max-width: 500px; 
+        width: 100%;
+        padding: 20px;
+    }
+
+    form {
+        background-color: #ffffff; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        font-family: 'Arial', sans-serif;
+        padding: 20px;
+    }
+
+    .btn-dark {
+        background-color: #709070; 
+        color: #f7f9f5; 
+        border: none;
+        border-radius: 15px;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        font-family: 'Cormorant SC', serif; 
+        font-size: 18px; 
+    }
+
+    .btn-dark:hover {
+        background-color: #4e4f4a;
+    }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .form-row .col {
+        flex: 1;
+        margin: 5px;
+    }
+
+    .form-row .col input {
+        width: 100%;
+    }
+</style>

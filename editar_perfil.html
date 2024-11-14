@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Editar Perfil</h2>
+        <form method="POST" action="/editar_perfil" enctype="multipart/form-data">
+            <!-- Nome -->
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" value="{{ current_user.nome }}" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ current_user.email }}" required>
+            </div>
+
+            <!-- Senha -->
+            <div class="form-group">
+                <label for="senha_atual">Senha Atual</label>
+                <input type="password" class="form-control" id="senha_atual" name="senha_atual" placeholder="Digite sua senha atual" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nova_senha">Nova Senha</label>
+                <input type="password" class="form-control" id="nova_senha" name="nova_senha" placeholder="Digite sua nova senha (opcional)">
+            </div>
+
+            <!-- Foto de Perfil -->
+            <div class="form-group">
+                <label for="foto_perfil">Foto de Perfil</label>
+                <input type="file" class="form-control-file" id="foto_perfil" name="foto_perfil">
+            </div>
+
+            <!-- Botão de salvar -->
+            <button type="submit" class="btn btn-primary btn-block">Salvar Alterações</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<body>
+<meta http-equiv="refresh" content="{{ refresh_interval }}">
+<div class="container">
+    <div class="header-photo">
+        <div class="header-text">
+            <h1>Precisando marcar o tempo da sua atividade física? Utilize o cronômetro</h1>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="display-3">
+            {{ '%02d:%02d:%02d' | format(hours, minutes, seconds) }}
+        </div>
+        <div class="mt-4">
+            {% if not is_running %}
+            <form action="{{ url_for('iniciar_cronometro') }}" method="post">
+                <button class="btn btn-success">Iniciar</button>
+            </form>
+            {% else %}
+            <form action="{{ url_for('pausar_cronometro') }}" method="post">
+                <button class="btn btn-warning">Pausar</button>
+            </form>
+            {% endif %}
+            <form action="{{ url_for('resetar_cronometro') }}" method="post" class="mt-2">
+                <button class="btn btn-danger">Resetar</button>
+            </form>
+        </div>
+    </div>
+    <style>
+        .header-photo {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-image: url('/static/img/stopwatch.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    
+        .header-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Ocupar a largura total da foto */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Alinha o texto à esquerda */
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    
+        .header-text h1 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 0;
+            max-width: 50%; /* O texto ocupará até metade da largura da capa */
+        }
+    
+        .timer-container {
+            font-size: 50px; /* Font size adjusted */
+            font-weight: normal; /* Font weight adjusted to be thinner */
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+    
+        .btn {
+            margin: 0 5px;
+        }
+    </style>
+</div>
+{% endblock %}

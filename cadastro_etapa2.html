@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo-img">
+        </div>
+
+        <form action="" method="post" class="form-container">
+            {{ form.csrf_token }}
+
+            <div class="form-group">
+                {{ form.senha.label() }}
+                {{ form.senha(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.confirmacao_senha.label() }}
+                {{ form.confirmacao_senha(class="form-control") }}
+            </div>
+
+            {{ form.btnSubmit(class="btn btn-dark col-12 mt-3") }}
+        </form>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f7f9f5; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+        
+            .logo-container {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        
+            .logo-img {
+                max-width: 300px; /* Ajuste o tamanho da imagem do logo */
+                height: auto;
+            }
+        
+            .container {
+                max-width: 500px; /* Ajuste a largura máxima do contêiner */
+                width: 100%;
+                padding: 20px;
+            }
+        
+            .form-container {
+                background-color: #ffffff; 
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+                padding: 20px;
+            }
+        
+            .form-control {
+                font-family: 'Cormorant SC', serif; 
+                font-size: 16px; /* Ajuste o tamanho da fonte para melhor adaptação */
+                text-align: center; 
+                color: black; 
+                background-color: #C8DBC3; 
+                border: 1px solid black; 
+                border-radius: 15px;
+                width: 100%; 
+                max-width: 280px;
+                height: 40px; 
+                margin: 5px auto; 
+                display: block; 
+            }
+        
+            .form-control::placeholder {
+                font-family: 'Cormorant SC', serif; 
+                color: white; 
+                font-size: 16px; /* Ajuste o tamanho da fonte do placeholder */
+            }
+        
+            .form-group {
+                margin-bottom: 15px;
+            }
+        
+            .btn-dark {
+                background-color: #709070; 
+                color: #f7f9f5; 
+                border: none;
+                border-radius: 15px;
+                padding: 10px;
+                cursor: pointer;
+                width: 100%;
+                font-family: 'Cormorant SC', serif; 
+                font-size: 18px; 
+            }
+        
+            .btn-dark:hover {
+                background-color: #4e4f4a;
+            }
+        </style>
+        
+    </div>
+{% endblock %}

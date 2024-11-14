@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Alimentação - Live Well</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .header-photo {
+            background-image: url(''); 
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            position: relative;
+        }
+
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .full-width-section {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background-color: #ffffff;
+            padding: 40px 20px;
+            margin-top: 0; 
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .btn-add-water, .btn-remove-water {
+            margin-top: 10px;
+        }
+
+        #water-summary {
+            margin-top: 10px;
+            font-family: 'Cormorant SC', serif;
+            font-size: 18px;
+        }
+
+        .menu {
+            background-color: #709070;
+            padding: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .menu .logo {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+
+        .form-control{
+            background-color:#C8DBC3 ;
+            color:#ffffff;
+        }
+        .text-center{
+            color: #709070;
+            font-family: 'Cormorant SC', serif;
+        }
+        .form-section h5{
+            font-family: 'Cormorant SC', serif;
+        }
+        .IMG{
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <!-- Bloco para exibir mensagens flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert-container">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Sessão que ocupa a largura total da tela -->
+    <div class="full-width-section">
+        <h2 class="text-center">Registro de Alimentação</h2>
+
+        <!-- Formulário dentro de um container padrão para não ocupar toda a largura -->
+        <div class="container">
+            <form method="POST" action="{{ url_for('calorias') }}">
+                <div class="form-section">
+                    <h5>Café da Manhã</h5>
+                    <textarea class="form-control" name="cafe_da_manha" placeholder="Ex.: Pão, café, frutas"></textarea>
+                </div>
+                
+                <div class="form-section">
+                    <h5>Almoço</h5>
+                    <textarea class="form-control" name="almoco" placeholder="Ex.: Arroz, feijão, carne"></textarea>
+                </div>
+                
+                <div class="form-section">
+                    <h5>Jantar</h5>
+                    <textarea class="form-control" name="jantar" placeholder="Ex.: Sopa, salada"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h5>Proteínas</h5>
+                    <input type="text" class="form-control" name="proteinas" placeholder="Ex.: 30g de proteína">
+                </div>
+
+                <div class="form-section">
+                    <h5>Carboidratos</h5>
+                    <input type="text" class="form-control" name="carboidratos" placeholder="Ex.: 50g de carboidratos">
+                </div>
+
+                <div class="form-section">
+                    <h5>Gorduras</h5>
+                    <input type="text" class="form-control" name="gorduras" placeholder="Ex.: 10g de gordura">
+                </div>
+
+                <div class="form-section">
+                    <h5>Água Consumida</h5>
+                    <button type="button" class="btn btn-primary btn-add-water" id="add-water">+ Adicionar 250ml</button>
+                    <button type="button" class="btn btn-danger btn-remove-water" id="remove-water">- Remover 250ml</button>
+                    <input type="hidden" id="total-water" name="total_water" value="0">
+                    <p id="water-summary">Total de Água Consumida: 0 ml</p>
+                </div>
+                <img class="IMG"src="static/img/água.jpg" alt="Água">
+                         
+                <button type="submit" class="btn btn-success">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let totalWater = 0;
+        document.getElementById('add-water').addEventListener('click', function() {
+            totalWater += 250;
+            document.getElementById('total-water').value = totalWater;
+            document.getElementById('water-summary').innerText = 'Total de Água Consumida: ' + totalWater + ' ml';
+        });
+        document.getElementById('remove-water').addEventListener('click', function() {
+            if (totalWater >= 250) {
+                totalWater -= 250;
+                document.getElementById('total-water').value = totalWater;
+                document.getElementById('water-summary').innerText = 'Total de Água Consumida: ' + totalWater + ' ml';
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}

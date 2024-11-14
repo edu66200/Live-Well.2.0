@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<body>
+
+<div class="container">
+    <div class="row mt-4">
+        <h3>Calculadora de Calorias</h3>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="proteinas" class="form-label">Proteínas (g):</label>
+                <input type="text" id="proteinas" name="proteinas" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="carboidratos" class="form-label">Carboidratos (g):</label>
+                <input type="text" id="carboidratos" name="carboidratos" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="gorduras" class="form-label">Gorduras (g):</label>
+                <input type="text" id="gorduras" name="gorduras" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+
+        {% if total_calorias != null %}
+        <h4 class="mt-4">Total de Calorias: {{ total_calorias }} kcal</h4>
+        <p><strong>Atenção:</strong> o valor de calorias é referente à porção de alimento que contém a quantidade de
+            carboidratos, proteínas e gordura que indicou acima.
+            Se a composição que indicou for para uma porção de 100g, isso significa que cada 100g do alimento tem {{
+            total_calorias }} calorias.</p>
+
+        {% else %}
+        <p><strong>Atenção:</strong> o valor de calorias é referente à porção de alimento que contém a quantidade de
+            carboidratos, proteínas e gordura que indicou acima.
+            Se a composição que indicou for para uma porção de 100g, isso significa que cada 100g do alimento tem <strong>X</strong> calorias.</p> {% endif %}
+
+        {% if error %}
+        <div class="alert alert-danger mt-4">
+            {{ error }}
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentação - Live Well</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;700&display=swap">
+    <style>
+        .header-photo {
+            background-image: url('/static/img/your-header-image.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            position: relative;
+        }
+
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: left;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+
+        .content-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .food-photo {
+            background-image: url('/static/img/Fundo_saude.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            position: relative;
+            
+        }
+
+        .food-text {
+            font-family: 'Cormorant SC', serif; 
+            text-align: center; 
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            padding: 176px; 
+            position: absolute;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            color: white; 
+            font-size: 2rem; 
+            font-weight: bold; 
+        }
+
+
+        .text-justified {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: justify;
+            font-family: 'Cormorant SC', serif;
+        }
+
+        .principles-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .principles-text, .principles-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .principles-box {
+            border: 2px solid #4CAF50; 
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            margin-bottom: 10px; 
+            font-family: 'Cormorant SC', serif;
+        }
+
+        .image-box {
+            padding: 10px;
+            width: 100%;
+        }
+
+        .image-box img {
+            border-radius: 10px;
+            max-width: 100%;
+            height: left;
+            width: 100%; /* Garante que a imagem ocupe toda a largura disponível */
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="food-photo">
+        <div class="food-text">Saúde</div>
+    </div>
+
+    <div class="text-justified">
+        <h2>Importância da saúde</h2>
+        <p>
+            A saúde é como um tesouro escondido que descobrimos e valorizamos ao longo da vida. 
+            Cuidar dela é como cultivar um jardim, onde nossas escolhas diárias são as sementes que plantamos. 
+        </p>
+        <p>
+            Podemos fortalecer nossa saúde com hábitos que nutrem corpo e mente, 
+            como exercícios que nos revigoram e momentos de relaxamento que restauram nossas energias. 
+            Cada decisão é como uma pedra preciosa que constrói nossa jornada de bem-estar, 
+            nos guiando para uma vida vibrante e plena.
+        </p>
+    </div>
+
+    <div class="principles-container">
+        <div class="principles-text">
+            <div class="principles-box">
+                <h3>Atividade Física</h3>
+                <p>Faça exercícios adequados às suas capacidades, como caminhadas, corridas, 
+                    yoga ou atividades aeróbicas e de fortalecimento muscular.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Alimentação Balanceada</h3>
+                <p>Priorize uma dieta rica em frutas, vegetais, proteínas magras e grãos integrais, 
+                    evitando alimentos processados e excesso de açúcar e gorduras.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Estresse</h3>
+                <p>Aprenda técnicas de relaxamento como meditação e respiração profunda, 
+                    e cultive hobbies que promovam bem-estar emocional.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Sono</h3>
+                <p> Mantenha uma rotina de sono consistente para promover a recuperação física e mental.</p>
+            </div>
+
+            <div class="principles-box">
+                <h3>Cuidados</h3>
+                <p> Realize check-ups médicos regulares, exames de sangue e avaliações de saúde para detectar 
+                    precocemente problemas e adotar medidas preventivas.</p>
+            </div>
+        </div>
+
+        <div class="principles-image">
+            <div class="image-box">
+                <div class="image-box img">
+                    <img src='/static/img/Foto_principal_saude.jpg'>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
